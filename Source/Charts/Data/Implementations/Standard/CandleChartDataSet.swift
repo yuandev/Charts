@@ -39,18 +39,13 @@ open class CandleChartDataSet: LineScatterCandleRadarChartDataSet, CandleChartDa
         calcMinMaxX(entry: e)
     }
     
-    open override func calcMinMaxY(entry e: ChartDataEntry)
-    {
-        guard let e = e as? CandleChartDataEntry
-            else { return }
+	open override func calcMinMaxY(entry e: ChartDataEntry) {
+		guard let e = e as? CandleChartDataEntry
+		else { return }
+		_yMin = Swift.min(_yMin, e.low, e.high)
+		_yMax = Swift.max(_yMax, e.low, e.high)
+	}
 
-        _yMin = Swift.min(e.low, _yMin)
-        _yMax = Swift.max(e.high, _yMin)
-
-        _yMin = Swift.min(e.low, _yMax)
-        _yMax = Swift.max(e.high, _yMax)
-    }
-    
     // MARK: - Styling functions and accessors
     
     /// the space between the candle entries
