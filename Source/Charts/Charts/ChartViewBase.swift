@@ -328,12 +328,12 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     /// Set this to false to prevent values from being highlighted by tap gesture.
     /// Values can still be highlighted via drag or programmatically.
     /// **default**: true
-    @objc open var highlightPerTapEnabled: Bool = true
+    @objc open var highlightLongPressEnabled: Bool = true
 
     /// `true` if values can be highlighted via tap gesture, `false` ifnot.
-    @objc open var isHighLightPerTapEnabled: Bool
+    @objc open var isHighLightLongPressEnabled: Bool
     {
-        return highlightPerTapEnabled
+        return highlightLongPressEnabled
     }
     
     /// Checks if the highlight array is null, has a length of zero or if the first object is null.
