@@ -24,7 +24,10 @@ open class CandleChartDataEntry: ChartDataEntry
     
     /// open value
     @objc open var open = Double(0.0)
-    
+
+	/// vol value
+	@objc open var vol = Double(0.0)
+
     public required init()
     {
         super.init()
@@ -51,6 +54,12 @@ open class CandleChartDataEntry: ChartDataEntry
         self.init(x: x, shadowH: shadowH, shadowL: shadowL, open: open, close: close)
         self.data = data
     }
+
+	@objc public convenience init(x: Double, shadowH: Double, shadowL: Double, open: Double, close: Double, vol: Double)
+	{
+		self.init(x: x, shadowH: shadowH, shadowL: shadowL, open: open, close: close)
+		self.vol = vol
+	}
 
     @objc public convenience init(x: Double, shadowH: Double, shadowL: Double, open: Double, close: Double, icon: NSUIImage?, data: Any?)
     {
